@@ -1,6 +1,8 @@
 # pokedex
 
-This template should help get you started developing with Vue 3 in Vite.
+Projeto de uma Pokédex para o desafio de estágio frontend da Mainô. o projeto está sendo desenvolvido com Vue 3.
+
+As informações estão sendo consumidas da [API](https://pokeapi.co)
 
 ## Recommended IDE Setup
 
