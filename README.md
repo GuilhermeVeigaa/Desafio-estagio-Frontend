@@ -1,4 +1,4 @@
-# pokedex
+# Pokédex
 
 Projeto de uma Pokédex para o desafio de estágio frontend da Mainô. O projeto está sendo desenvolvido com Vue 3.
 
