@@ -1,4 +1,5 @@
 <script setup>
+import CardContainer from './components/CardContainer.vue';
 import Search from './components/Search.vue';
 
 
@@ -12,6 +13,11 @@ import Search from './components/Search.vue';
       <Search />
     </nav>
   </header>
+
+    <main>
+      <CardContainer />
+    </main>
+  
 </template>
 
 <style scoped>

@@ -1,6 +1,6 @@
-# pokedex
+# Pokédex
 
-Projeto de uma Pokédex para o desafio de estágio frontend da Mainô. o projeto está sendo desenvolvido com Vue 3.
+Projeto de uma Pokédex para o desafio de estágio frontend da Mainô. O projeto está sendo desenvolvido com Vue 3.
 
 As informações estão sendo consumidas da [API](https://pokeapi.co)
 
