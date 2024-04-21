@@ -7,7 +7,7 @@
    <h3 class="title">O que você está procurando na Pokédex ?</h3>
 
    <div class="search-container">
-        <img class="search-logo" width="22px" src="../../public/search.png" alt="Search logo">
+        <img class="search-logo" width="22px" src="@public/search.png" alt="Search logo">
         
         <input type="search" name="search" id="search" :placeholder="placeholder">
 

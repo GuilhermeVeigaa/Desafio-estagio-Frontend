@@ -2,39 +2,58 @@
 import CardView from './CardView.vue';
 
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
+import BaseModal from './BaseModal.vue';
 
 const pokemons = ref([])
 
 const getPokemon = () => {
     let endpoint = []
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 26; i++) {
         endpoint.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
     }
 
-    let response = axios.all(endpoint.map((endpoint) => axios.get(endpoint))).then((response) => pokemons.value = (response))      
+     axios.all(endpoint.map((endpoint) => axios.get(endpoint))).then((response) => pokemons.value = (response))      
 }
 
 onMounted(getPokemon)
 
+let pokemonSelected = reactive(ref())
+
+const selectPokemon = async (pokemon) => {
+        pokemonSelected.value = pokemon
+}
 
 
 </script>
 
 <template>
+    <BaseModal  
+    :name="pokemonSelected?.name"
+    :image="pokemonSelected?.sprites.front_default"
+    :atk1="pokemonSelected?.moves[0].move.name"
+    :atk2="pokemonSelected?.moves.length > 1 ? pokemonSelected?.moves[1].move.name : null"
+    :atk3="pokemonSelected?.moves.length > 1 ? pokemonSelected?.moves[2].move.name : null"
+    :atk4="pokemonSelected?.moves.length > 1 ? pokemonSelected?.moves[3].move.name : null"
+    />
     <main class="main-container">
         <section class="container">
             <article class="pokedex-logo">
-                <img width="203px" src="../../public/pokedexlogo.png" alt="Pokédex-logo">
+                <img width="203px" src="@public/pokedexlogo.png" alt="Pokédex-logo">
             </article>
 
-            <section class="card-container">
-                <article v-for="(pokemon, i) in pokemons" :key="i">
-                    <CardView :name="pokemon.data.name" :id="pokemon.data.id"
-                    :image="pokemon.data.sprites.front_default" />
-                </article>
-            </section>
-
+            
+                <section class="card-container">
+                    <article v-for="(pokemon, i) in pokemons" :key="i">
+                        <CardView @click="() => selectPokemon(pokemon.data)"    :name="pokemon.data.name" 
+                            :image="pokemon.data.sprites.front_default"
+                            :id="'#' + pokemon.data.id"
+                            :type1="pokemon.data.types[0].type.name"
+                            :type2="pokemon.data.types.length > 1 ? pokemon.data.types[1].type.name : undefined"
+                            :idStyle="pokemon.data.types.length > 1 ? pokemon.data.types[1].type.name : 'none'"/>
+                    </article>
+                </section>
+            
                        
         </section>
     </main>
@@ -71,4 +90,5 @@ onMounted(getPokemon)
         flex-wrap: wrap;
         
     }
+
 </style>
