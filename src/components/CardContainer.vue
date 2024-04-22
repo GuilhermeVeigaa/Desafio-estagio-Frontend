@@ -9,7 +9,7 @@ const pokemons = ref([])
 
 const getPokemon = () => {
     let endpoint = []
-    for (let i = 1; i <= 26; i++) {
+    for (let i = 1; i <= 500; i++) {
         endpoint.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
     }
 
