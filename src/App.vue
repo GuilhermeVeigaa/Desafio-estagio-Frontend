@@ -6,7 +6,6 @@ import { RouterView, RouterLink } from 'vue-router';
 <template>
   
   <RouterLink to="/" />
-  <RouterLink to="/profile" />
   
   <RouterView />
 </template>

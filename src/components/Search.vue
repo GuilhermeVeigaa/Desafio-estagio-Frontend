@@ -1,17 +1,17 @@
 <script setup>
-     const placeholder = "Nome, ID, Tipo..."
+    const placeholder = "Name, ID, Type..."
 
 </script>
 
 <template>
-   <h3 class="title">O que você está procurando na Pokédex ?</h3>
+   <h3 class="title">What are you looking for in the Pokédex ?</h3>
 
    <div class="search-container">
         <img class="search-logo" width="22px" src="@public/search.png" alt="Search logo">
         
         <input type="search" name="search" id="search" :placeholder="placeholder">
 
-        <button class="buttton-search">Buscar</button>
+        <button aria-label="search" class="buttton-search">Search</button>
         
     </div>
 </template>

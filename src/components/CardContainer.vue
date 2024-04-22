@@ -1,9 +1,9 @@
 <script setup>
 import CardView from './CardView.vue';
-
 import axios from 'axios';
 import { onMounted, reactive, ref } from 'vue';
 import BaseModal from './BaseModal.vue';
+
 
 const pokemons = ref([])
 
@@ -64,9 +64,7 @@ const closeModal = () => {
                             :type2="pokemon.data.types.length > 1 ? pokemon.data.types[1].type.name : undefined"
                             :idStyle="pokemon.data.types.length > 1 ? pokemon.data.types[1].type.name : 'none'"/>
                     </article>
-                </section>
-            
-                       
+                </section>           
         </section>
     </main>
 </template>
