@@ -17,7 +17,7 @@ const upe = () => {
 </script>
 
 <template>
-    <main id="cardView-container">
+    <main class="cardView-container">
         <section class="pokemon-container">
             <img class="pokemon" :src="props.image" alt="Foto do Pokémon">
             <p class="id">{{ props.id }}</p>
@@ -26,16 +26,21 @@ const upe = () => {
             <p class="types">{{ up }}</p>
             <p class="type2" :id="props.idStyle" >{{ upe() }}</p>
         </section>  
-        <h3 class="name">{{ uper }}</h3>
+        <div class="name-container">
+            <h3 class="name">{{ uper }}</h3>
+        </div>
     </main>
 </template>
 
 <style scoped>
-    #cardView-container {
+
+    .cardView-container {
         background-color: #fffefe;
         width: 28vw;
         height: 28vh;
         margin-left: 10%;
+
+        flex-wrap: wrap;
 
 
         border-radius: 10px;
@@ -45,7 +50,9 @@ const upe = () => {
 
     .pokemon-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
+        width: 100%;
     }
 
     .pokemon {
@@ -64,7 +71,7 @@ const upe = () => {
     .name {
         display: flex;
         justify-content: center;
-        margin-top: 10%;
+        margin-top: 7%;
 
         font-size: 22px;
         font-weight: 500;
@@ -73,6 +80,7 @@ const upe = () => {
 
     .types-container {
         display: flex;
+        flex-wrap: wrap;
         padding-left: 1.5em;
     }
 
@@ -100,6 +108,18 @@ const upe = () => {
 
     .type2#none {
         border: none;
+    }
+
+    .name-conatiner {
+        width: 100%;
+        display:flex ;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 1130px) {
+        .id {
+            display: none
+        }
     }
 
 </style>

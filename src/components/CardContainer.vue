@@ -22,19 +22,31 @@ let pokemonSelected = reactive(ref())
 
 const selectPokemon = async (pokemon) => {
         pokemonSelected.value = pokemon
+        isModalOpen.value = true
 }
 
+const isModalOpen = ref(false)
+
+const closeModal = () => {
+    isModalOpen.value = false
+}
 
 </script>
 
 <template>
     <BaseModal  
+    v-if="isModalOpen"
+    @closeModal="closeModal"
     :name="pokemonSelected?.name"
     :image="pokemonSelected?.sprites.front_default"
     :atk1="pokemonSelected?.moves[0].move.name"
     :atk2="pokemonSelected?.moves.length > 1 ? pokemonSelected?.moves[1].move.name : null"
     :atk3="pokemonSelected?.moves.length > 1 ? pokemonSelected?.moves[2].move.name : null"
     :atk4="pokemonSelected?.moves.length > 1 ? pokemonSelected?.moves[3].move.name : null"
+    :i1="pokemonSelected?.game_indices[0].version.name"
+    :i2="pokemonSelected?.game_indices.length > 1 ? pokemonSelected?.game_indices[1].version.name : null"
+    :i3="pokemonSelected?.game_indices.length > 1 ? pokemonSelected?.game_indices[2].version.name : null"
+    :i4="pokemonSelected?.game_indices.length > 1 ? pokemonSelected?.game_indices[3].version.name : null"
     />
     <main class="main-container">
         <section class="container">
@@ -89,6 +101,50 @@ const selectPokemon = async (pokemon) => {
         display: flex;
         flex-wrap: wrap;
         
+    }
+
+    @media screen and (max-width: 430px) {
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pokedex-logo {
+            display: none;
+        }
+
+        .card-container {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 1130px) {
+        .container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .pokedex-logo {
+            left: 10rem;
+        }
+
+        .card-container {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 792px) {
+ 
+
+        .pokedex-logo {
+            display: none;
+        }
     }
 
 </style>
